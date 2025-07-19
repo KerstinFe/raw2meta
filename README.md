@@ -8,15 +8,15 @@ Uses python3
   these files need to be unblocked after download!
  
 ### folder structure:
-raw2meta/
-├── RawFileReader_dll/
-│   └── Net471/
-│      └──ThermoFisher.CommonCore.RawFileReader.dll
-│      └──ThermoFisher.CommonCore.MassPrecisionEstimator.dll
-├── run_crawler.bat 
-├── run_Observer.bat 
-
-if run via bat file:
-├── WinPython/
-│   └── python/
-│      └──python.exe
+raw2meta/  
+├── RawFileReader_dll/  
+│   └── Net471/  
+│      └──ThermoFisher.CommonCore.RawFileReader.dll  
+│      └──ThermoFisher.CommonCore.MassPrecisionEstimator.dll  
+├── run_crawler.bat   
+├── run_Observer.bat   
+  
+if run via bat file:  
+├── WinPython/  
+│   └── python/  
+│      └──python.exe  
