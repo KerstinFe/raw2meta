@@ -40,13 +40,13 @@ Observes backup directory for new raw files. Metadata is extracted and stored in
 - Creates log files for corrupt files, empty files, or if files were already in database and somehow skipped the initial check so these can later be checked.
   + Corrupt files can also be files that are not readable with the RawFileReader framework from Thermo or where the machine and hplc dictionary defines the wrong machine and therefore the script tries to read traces in rawfiles that are not recorded. 
  
-#### missing features:
+#### to do:
 - [ ] include bruker machines
-- [ ] 
+- [ ] clean up code and make it more generic
 
 #### dependencies:
-Uses python3
-- pandas, numpy, pythonnet and watchdog to be installed
+Uses python 3.12
+- pandas (V 2.3.1), numpy (V 2.3.1), pythonnet (V 3.0.5) and watchdog (V 6.0.0) to be installed
 - [RawFileReaderFiles from Net471](https://github.com/thermofisherlsms/RawFileReader)
   these files need to be unblocked after download!
 
