@@ -41,6 +41,7 @@ Observes backup directory for new raw files. Metadata is extracted and stored in
   + Corrupt files can also be files that are not readable with the RawFileReader framework from Thermo or where the machine and hplc dictionary defines the wrong machine and therefore the script tries to read traces in rawfiles that are not recorded. 
  
 #### to do:
+- [ ] long running test
 - [ ] include bruker machines
 - [ ] clean up code and make it more generic
 
