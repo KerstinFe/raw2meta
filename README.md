@@ -48,8 +48,9 @@ Observes backup directory for new raw files. Metadata is extracted and stored in
 #### dependencies:
 Uses python 3.12
 - pandas (V 2.3.1), numpy (V 2.3.1), pythonnet (V 3.0.5) and watchdog (V 6.0.0) to be installed
-- [RawFileReaderFiles from Net471](https://github.com/thermofisherlsms/RawFileReader)
+- [RawFileReaderFiles from Net471](https://github.com/thermofisherlsms/RawFileReader)  
   these files need to be unblocked after download!
+  if you want to use them you have to agree to the license agreement 
 
 - only runs on Windows as part of the Thermo RawFileReader functions depend on Windows.   
  
