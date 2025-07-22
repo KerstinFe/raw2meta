@@ -23,7 +23,8 @@ Observes backup directory for new raw files. Metadata is extracted and stored in
      - MaxPressure_Pump (only for Neo)
      - Std_Pressure_Pump (only for Neo)
      - AnalyzerTemp_mean
-     - AnalyzerTemp_std 
+     - AnalyzerTemp_std
+     - Error
 
 - Instruments and HPLCs are defined in a Machines Dictonary and a HPLC Dictionary that are so far hard coded in the sqlLite_Function.py. The dictionaries are used to translate the names of machines in the instrument method to shorter and readable names.
 - The time range is the time range of the gradient.
@@ -39,11 +40,20 @@ Observes backup directory for new raw files. Metadata is extracted and stored in
  
 - Creates log files for corrupt files, empty files, or if files were already in database and somehow skipped the initial check so these can later be checked.
   + Corrupt files can also be files that are not readable with the RawFileReader framework from Thermo or where the machine and hplc dictionary defines the wrong machine and therefore the script tries to read traces in rawfiles that are not recorded. 
+
+- Files that appear empty because I cannot detect Scans and are below 15 kb are marked as corrupt and inserted into the db to avoid rechecking.
+- I noticed that sometimes files appear to be empty on MS level while showing other traces like pump pressure and being large in size. This issue is rare and when reprocessing the file after some time, the MS scans can be read. Therefore, these files are not being entered as corrupt immediately. Better handling of this needs to be established in the future.
+    
+
+
  
 #### to do:
 - [ ] long running test
 - [ ] include bruker machines
 - [ ] clean up code and make it more generic
+- [ ] reprocessing of files that appear empty but are not after short waiting period
+- [ ] giving option to replace corrupt files with correct files later
+
 
 #### dependencies:
 Uses python 3.12
