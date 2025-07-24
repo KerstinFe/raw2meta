@@ -1,9 +1,10 @@
 # raw2meta
-Observes backup directory for new raw files. Metadata is extracted and stored in sqlite database for later use. 
+Observes backup directory for new raw files. The metadata is extracted and stored in an SQLite database for later use.  
+Ongoing project
 
 #### features: 
 - Creates a sqlite db with two relational tables:
-  1. Project Metadata:
+  1. Project metadata:
      - ProjectID
      - Instrument
      - SoftwareVersion
@@ -12,7 +13,7 @@ Observes backup directory for new raw files. Metadata is extracted and stored in
      - TimeRange
      - FAIMSattached
 
-  2. Sample Metadata
+  2. Sample metadata
      - SampleName_ID
      - ProjectID (foreign key)
      - CreationDate
@@ -26,55 +27,63 @@ Observes backup directory for new raw files. Metadata is extracted and stored in
      - AnalyzerTemp_std
      - Error
 
-- Instruments and HPLCs are defined in a Machines Dictonary and a HPLC Dictionary that are so far hard coded in the sqlLite_Function.py. The dictionaries are used to translate the names of machines in the instrument method to shorter and readable names.
+- Instruments and HPLCs are defined in a Machines Dictionary and an HPLC Dictionary, which are currently hard-coded in the ETL_Functions.py file. These dictionaries translate the names of machines in the instrument method into shorter, more readable names.
 - The time range is the time range of the gradient.
 - The method is the name of the method file.
-- The pump pressure and analyzer temperature are recorded to observe stability of measurements. For pump pressure only 1000 scans over the whole range are extracted to reduce time. This is only recoreded for the Thermo Vanquish Neo system and not for EvoSep or EASY nLC-1200.  For the analyzer temperature 500 scans are extraced over the whole range. std = standard deviation
+- The pump pressure and analyzer temperature are recorded to observe the stability of the measurements. Only 1000 scans over the entire range are extracted for pump pressure to reduce time. The pump pressure is only recorded on the Thermo Vanquish Neo system, not the EvoSep or the EASY nLC-1200, and therefore also only available for these samples.
+- For analyzer temperature, 500 scans are extracted over the entire range.
+- std = standard deviation
   
-- The ProjectID is defined as the first 3 parts of the rawfile name. In our case they are standardised to \[machinename]\_\[date]\_\[initials of person who measures]. 
-- When a QC Hela standard is measured before a project, the extracted metadata is stored in a .json file in the TEMP folder and later extracted when the first sample of the project is measured to make sure it gets the correct project ID and the extraced metadata information is not that of the Hela standard.
+- The project ID is defined as the first three parts of the raw file name. In our case, they are standardized as follows:  \[machinename]\_\[date]\_\[initials of person who measures]. 
+- When a QC (quality control) Hela standard is measured at the beginning of a project, the extracted metadata is stored in a .json file in the TEMP folder. Later, when the first sample of the project is measured, the metadata is extracted to ensure that the sample receives the correct project ID and that the extracted metadata is not that of the Hela standard.
 
-- The project contains two main files.
-  + One with the observer to check for new rawfiles in subfolders the backup directory. We have subfolders per month so the script changes every month which folders it observes.
-  + One that looks for all raw files in the directory to add them into the database so that also older files can be added to the database easily.
+- The project consists three main files:
+  + The observer checks the backup directory for new raw files in subfolders. Since we have subfolders organized by month, the script changes which folders it observes every month.
+  + The backlog processor looks for all raw files in the directory and adds them to the database, making it easy to add older files.
+  + The file that contains the classes and functions.
  
-- Creates log files for corrupt files, empty files, or if files were already in database and somehow skipped the initial check so these can later be checked.
-  + Corrupt files can also be files that are not readable with the RawFileReader framework from Thermo or where the machine and hplc dictionary defines the wrong machine and therefore the script tries to read traces in rawfiles that are not recorded. 
+- Creates log files for corrupt or empty files, or for files that were in the database but somehow skipped the initial check, so they can be reviewed later.
 
-- Files that appear empty because I cannot detect Scans and are below 15 kb are marked as corrupt and inserted into the db to avoid rechecking.
-- I noticed that sometimes files appear to be empty on MS level while showing other traces like pump pressure and being large in size. This issue is rare and when reprocessing the file after some time, the MS scans can be read. Therefore, these files are not being entered as corrupt immediately. Better handling of this needs to be established in the future.
-    
+- Files that appear empty because I cannot detect scans and are below 15 KB are marked as corrupt and inserted into the database as such to avoid reprocessing.
+- I've noticed that sometimes files appear empty at the MS level, yet they show traces of pump pressure and are large in size. It seems like these files are accessible even though they have not been fully copied. Therefore, I include multiple waiting times and don't insert them into the database as corrupt so they can be entered later. (I will improve the processing of these files in the future.)
 
 
  
-#### to do:
-- [ ] long running test
-- [ ] include bruker machines
-- [ ] clean up code and make it more generic
-- [ ] reprocessing of files that appear empty but are not after short waiting period
-- [ ] giving option to replace corrupt files with correct files later
+#### To Do:
+- [ ] Include Bruker machines
+- [ ] Clean up the code, remove repetitions, and make it more generic
+- [ ] Reprocess files that appear empty but are not after a short waiting period
+- [ ] Include reprocessing of a corrupt file in the main script when it is replaced by the correct file
+- [ ] Start observing the folder for the next month as soon as it is created, not at the beginning of the month
 
 
-#### dependencies:
-Uses python 3.12
-- pandas (V 2.3.1), numpy (V 2.3.1), pythonnet (V 3.0.5) and watchdog (V 6.0.0) to be installed
+#### Dependencies:
+Uses Python 3.12
+- pandas (V 2.3.1), numpy (V 2.3.1), pythonnet (V 3.0.5) and watchdog (V 6.0.0) 
 - [RawFileReaderFiles from Net471](https://github.com/thermofisherlsms/RawFileReader)  
-  these files need to be unblocked after download!
-  if you want to use them you have to agree to the license agreement 
+  These files must be unblocked after downloading.  
+  If you want to use them, you must agree to the license agreement.  
 
-- only runs on Windows as part of the Thermo RawFileReader functions depend on Windows.   
+- Only runs on Windows because some of the Thermo RawFileReader functions depend on Windows   
  
-#### folder structure:
+#### Folder Structure:
 raw2meta/  
 ├── RawFileReader_dll/  
 │   └── Net471/  
 │&nbsp;&nbsp;&nbsp;&nbsp;└──ThermoFisher.CommonCore.RawFileReader.dll  
 │&nbsp;&nbsp;&nbsp;&nbsp;└──ThermoFisher.CommonCore.MassPrecisionEstimator.dll  
 ├── TEMP/  
-├── run_crawler.bat   
-├── run_Observer.bat   
+├── ETL_Functions.py  
+├── ETL_BacklogProcessor.py  
+├── ETL_Observer.py  
+├── CheckIngestionStatus.py   
+├── run_BacklogProcessor.bat  
+├── run_Observer.bat  
+├── run_CheckIngestionStatus.bat  
+├── run_ReplaceCorruptFile.bat  
+├── Metadata.sqlite
   
-if run via bat file:  
+If run via bat file:  
 ├── WinPython/  
 │   └── python/  
 │      └──python.exe  
