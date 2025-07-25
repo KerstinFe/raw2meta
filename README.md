@@ -1,5 +1,6 @@
 # raw2meta
 Observes backup directory for new raw files. The metadata is extracted and stored in an SQLite database for later use.  
+Only runs on windows because of dependencies in the RawFileReader from Thermo.  
 Ongoing project
 
 #### features: 
