@@ -38,11 +38,6 @@ Ongoing project
 - The project ID is defined as the first three parts of the raw file name. In our case, they are standardized as follows:  \[machinename]\_\[date]\_\[initials of person who measures]. 
 - When a QC (quality control) Hela standard is measured at the beginning of a project, the extracted metadata is stored in a .json file in the TEMP folder. Later, when the first sample of the project is measured, the metadata is extracted to ensure that the sample receives the correct project ID and that the extracted metadata is not that of the Hela standard.
 
-- The project consists three main files:
-  + The observer checks the backup directory for new raw files in subfolders. Since we have subfolders organized by month, the script changes which folders it observes every month.
-  + The backlog processor looks for all raw files in the directory and adds them to the database, making it easy to add older files.
-  + The file that contains the classes and functions.
- 
 - Creates log files for corrupt or empty files, or for files that were in the database but somehow skipped the initial check, so they can be reviewed later.
 
 - Files that appear empty because I cannot detect scans and are below 15 KB are marked as corrupt and inserted into the database as such to avoid reprocessing.
@@ -66,25 +61,41 @@ Uses Python 3.12
   If you want to use them, you must agree to the license agreement.  
 
 - Only runs on Windows because some of the Thermo RawFileReader functions depend on Windows   
- 
+
+#### structure:
+- The project consists three main files:
+  + The observer checks the backup directory for new raw files in subfolders. Since we have subfolders organized by month, the script changes which folders it observes every month.
+  + The backlog processor looks for all raw files in the directory and adds them to the database, making it easy to add older files.
+  + The file that contains the classes and functions.  
+   
+- There are three additional helper scripts:
+  + The CheckIngestionStatus script looks at which months the files in the database come from, how many are present, and how many are missing.
+  + The InsertCorruptFileEntry script adds a corrupted file. This is not part of the main script yet. This way, the file can be checked manually. It tries to read the file again before inserting it as corrupt.
+  + The ReplaceCorruptFileEntry script updates the entry in the database after the corrupt file is replaced.
+
+All scripts can be started with batch scripts. 
+    
 #### Folder Structure:
 raw2meta/  
-├── RawFileReader_dll/  
-│   └── Net471/  
-│&nbsp;&nbsp;&nbsp;&nbsp;└──ThermoFisher.CommonCore.RawFileReader.dll  
-│&nbsp;&nbsp;&nbsp;&nbsp;└──ThermoFisher.CommonCore.MassPrecisionEstimator.dll  
-├── TEMP/  
 ├── ETL_Functions.py  
-├── ETL_BacklogProcessor.py  
-├── ETL_Observer.py  
-├── CheckIngestionStatus.py   
-├── run_BacklogProcessor.bat  
-├── run_Observer.bat  
-├── run_CheckIngestionStatus.bat  
-├── run_ReplaceCorruptFile.bat  
-├── Metadata.sqlite
-  
-If run via bat file:  
-├── WinPython/  
+├── ETL_BacklogProcessor.py   
+├── run_BacklogProcessor.bat   
+├── ETL_Observer.py    
+├── run_Observer.bat   
+├── CheckIngestionStatus.py     
+├── run_CheckIngestionStatus.bat    
+├── ETL_ReplaceCorruptFileEntry.py    
+├── run_ReplaceCorruptFile.bat    
+├── ETL_InsertCorruptFileEntry.py    
+├── run_InsertCorruptFile.bat      
+├── Metadata.sqlite  
+├── RawFileReader_dll/    
+│   └── Net471/    
+│&nbsp;&nbsp;&nbsp;&nbsp;└──ThermoFisher.CommonCore.RawFileReader.dll    
+│&nbsp;&nbsp;&nbsp;&nbsp;└──ThermoFisher.CommonCore.MassPrecisionEstimator.dll    
+├── TEMP/    
+
+If run via bat file:    
+├── WinPython/    
 │   └── python/  
 │      └──python.exe  
