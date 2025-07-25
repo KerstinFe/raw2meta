@@ -50,9 +50,9 @@ Ongoing project
 
  
 #### To Do:
-- [ ] Include Bruker machines
+- [ ] Include files from Bruker machines
 - [ ] Clean up the code, remove repetitions, and make it more generic
-- [ ] Reprocess files that appear empty but are not after a short waiting period
+- [ ] Reprocess files that appear empty but are just not completely copied
 - [ ] Include reprocessing of a corrupt file in the main script when it is replaced by the correct file
 - [ ] Start observing the folder for the next month as soon as it is created, not at the beginning of the month
 
