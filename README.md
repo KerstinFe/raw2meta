@@ -93,44 +93,44 @@ raw2meta/
 ├── Setup_Python_Environment_forbat.bat  
 ├── Setup_Python_Environment_noDel_forbat.bat  
 ├── src/  
-│   └── raw2meta/  
-│       ├── __init__.py  
-│       ├── components/  
-│       │   ├── __init__.py  
-│       │   ├── GetMetadata.py  
-│       │   ├── Observer.py  
-│       │   ├── UserInput.py  
-│       ├── config/  
-│       │   ├── __init__.py  
-│       │   ├── configuration.py  
-│       │   ├── loadParams.py  
-│       │   ├── logger.py  
-│       │   ├── MachinesDict.json  
-│       │   ├── paths.py  
-│       ├── db/  
-│       │   ├── __init__.py  
-│       │   ├── CreateDatabase.py  
-│       │   ├── database_helper.py  
-│       │   ├── FillDatabase_Fun.py  
-│       │   ├── FillDatabase_logic.py  
-│       ├── entity/  
-│       │   ├── __init__.py  
-│       │   ├── entities.py  
-│       ├── helper/  
-│       │   ├── __init__.py  
-│       │   ├── common.py  
-│       │   ├── Exceptions.py  
-│       ├── pipeline/  
-│       │   ├── __init__.py  
-│       │   ├── pipeline_BacklogProcessor.py  
-│       │   ├── pipeline_CheckIngestionStatus.py  
-│       │   ├── pipeline_InsertCorruptFile.py  
-│       │   ├── pipeline_Observer.py  
-│       │   ├── pipeline_ReplaceFile.py  
-│       ├── RawFileReader/  
-│       │   ├── __init__.py  
-│       │   ├── ImportRawFileReaderFunctions.py  
-│       │   └── RawFileReader_dll/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── raw2meta/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── components/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── GetMetadata.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Observer.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── UserInput.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── config/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── configuration.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── loadParams.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── logger.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── MachinesDict.json  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── paths.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── db/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── CreateDatabase.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── database_helper.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── FillDatabase_Fun.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── FillDatabase_logic.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── entity/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── entities.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── helper/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── common.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Exceptions.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── pipeline/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── pipeline_BacklogProcessor.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── pipeline_CheckIngestionStatus.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── pipeline_InsertCorruptFile.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── pipeline_Observer.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── pipeline_ReplaceFile.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── RawFileReader/  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── ImportRawFileReaderFunctions.py  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── RawFileReader_dll/  
 ├── TEMP/  
 ├── logs/  
 
