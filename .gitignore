@@ -2,3 +2,5 @@ WinPython
 WinPython.7z
 RawFileReader_dll
 TEMP
+__pycache__/
+RawFileReader/

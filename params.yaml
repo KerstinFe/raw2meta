@@ -1,0 +1,24 @@
+# Parameters that change between environments or experiments
+data:
+  mass_spec_directory: "Z:/"  # Changes per server
+  metadata_db_path: "Metadata.sqlite"
+  Tables_Metadata_db: ["Metadata_Project", "Metadata_Sample", "TEMP_forJoin"]
+
+MachinesDict:
+    "Q Exactive HF-X - Orbitrap MS": "HFX"
+    "Orbitrap Astral": "Astral"
+    "Orbitrap Exploris 480": "Exploris480"
+    "Q Exactive Plus - Orbitrap MS": "Q_Exactive_Plus"
+
+HPLCDict: 
+    "Thermo EASY-nLC": "nanoLC"
+    "Proxeon_EASY-nLC": "nanoLC"
+    "Thermo Scientific SII for Xcalibur": "Neo"
+    "SiiXcalibur": "EvoSep"
+    "EvoSep": "EvoSep"
+
+processing:
+  file_wait_time_minutes: 5  # Might experiment with 3, 5, 10
+  days_waiting: 5           # Might tune this
+  min_file_size_kb: 15000   # Threshold you might adjust
+  
