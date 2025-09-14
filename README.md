@@ -82,54 +82,56 @@ Uses Python 3.12
 All scripts can be started with batch scripts. 
     
 #### Folder Structure:
-raw2meta/
-├── params.yaml
-├── requirements.txt
-├── Start_BacklogProcessor.bat
-├── Start_CheckIngestionStatus.bat
-├── Start_Observer.bat
-├── ReplaceFiles.bat
-├── InsertCorrruptFiles.bat
-├── Setup_Python_Environment_forbat.bat
-├── Setup_Python_Environment_noDel_forbat.bat
-├── src/
-│   └── raw2meta/
-│       ├── __init__.py
-│       ├── components/
-│       │   ├── __init__.py
-│       │   ├── GetMetadata.py
-│       │   ├── Observer.py
-│       │   ├── UserInput.py
-│       ├── config/
-│       │   ├── __init__.py
-│       │   ├── configuration.py
-│       │   ├── loadParams.py
-│       │   ├── logger.py
-│       │   ├── MachinesDict.json
-│       │   ├── paths.py
-│       ├── db/
-│       │   ├── __init__.py
-│       │   ├── CreateDatabase.py
-│       │   ├── database_helper.py
-│       │   ├── FillDatabase_Fun.py
-│       │   ├── FillDatabase_logic.py
-│       ├── entity/
-│       │   ├── __init__.py
-│       │   ├── entities.py
-│       ├── helper/
-│       │   ├── __init__.py
-│       │   ├── common.py
-│       │   ├── Exceptions.py
-│       ├── pipeline/
-│       │   ├── __init__.py
-│       │   ├── pipeline_BacklogProcessor.py
-│       │   ├── pipeline_CheckIngestionStatus.py
-│       │   ├── pipeline_InsertCorruptFile.py
-│       │   ├── pipeline_Observer.py
-│       │   ├── pipeline_ReplaceFile.py
-│       ├── RawFileReader/
-│       │   ├── __init__.py
-│       │   ├── ImportRawFileReaderFunctions.py
-│       │   └── RawFileReader_dll/
-├── TEMP/
-├── logs/
+raw2meta/  
+├── params.yaml  
+├── requirements.txt  
+├── Start_BacklogProcessor.bat  
+├── Start_CheckIngestionStatus.bat  
+├── Start_Observer.bat  
+├── ReplaceFiles.bat  
+├── InsertCorrruptFiles.bat  
+├── Setup_Python_Environment_forbat.bat  
+├── Setup_Python_Environment_noDel_forbat.bat  
+├── src/  
+│   └── raw2meta/  
+│       ├── __init__.py  
+│       ├── components/  
+│       │   ├── __init__.py  
+│       │   ├── GetMetadata.py  
+│       │   ├── Observer.py  
+│       │   ├── UserInput.py  
+│       ├── config/  
+│       │   ├── __init__.py  
+│       │   ├── configuration.py  
+│       │   ├── loadParams.py  
+│       │   ├── logger.py  
+│       │   ├── MachinesDict.json  
+│       │   ├── paths.py  
+│       ├── db/  
+│       │   ├── __init__.py  
+│       │   ├── CreateDatabase.py  
+│       │   ├── database_helper.py  
+│       │   ├── FillDatabase_Fun.py  
+│       │   ├── FillDatabase_logic.py  
+│       ├── entity/  
+│       │   ├── __init__.py  
+│       │   ├── entities.py  
+│       ├── helper/  
+│       │   ├── __init__.py  
+│       │   ├── common.py  
+│       │   ├── Exceptions.py  
+│       ├── pipeline/  
+│       │   ├── __init__.py  
+│       │   ├── pipeline_BacklogProcessor.py  
+│       │   ├── pipeline_CheckIngestionStatus.py  
+│       │   ├── pipeline_InsertCorruptFile.py  
+│       │   ├── pipeline_Observer.py  
+│       │   ├── pipeline_ReplaceFile.py  
+│       ├── RawFileReader/  
+│       │   ├── __init__.py  
+│       │   ├── ImportRawFileReaderFunctions.py  
+│       │   └── RawFileReader_dll/  
+├── TEMP/  
+├── logs/  
+
+
